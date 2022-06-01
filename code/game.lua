@@ -1,6 +1,6 @@
 game = {}
 
-local _background_sprite = playdate.graphics.sprite.new()
+local _background_sprite = nil
 
 function game.init( level_name )
 	goto_level( level_name )
@@ -20,6 +20,7 @@ function goto_level( level_name, direction )
 
 	game.tilemap = LDtk.create_tilemap( level_name ) 
 
+	_background_sprite = playdate.graphics.sprite.new()
 	_background_sprite:setTilemap( game.tilemap )
 	_background_sprite:moveTo( 0, 0)
 	_background_sprite:setCenter(0, 0)
